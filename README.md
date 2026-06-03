@@ -9,6 +9,7 @@ The goal is to understand how real agent systems fail at runtime, how those fail
 - Agent runtime reliability
 - Subagent lifecycle and resource accounting
 - Runtime configuration propagation
+- API contract and validator consistency
 - Memory compaction and context estimation
 - Regression-test driven debugging
 - Minimal-fix design and tradeoff analysis
@@ -19,6 +20,7 @@ The goal is to understand how real agent systems fail at runtime, how those fail
 cases/
   codex-subagent-lifecycle.md
   runtime-config-propagation.md
+  langgraph-api-openapi-validator-drift.md
   memory-compaction-token-estimate.md
 
 templates/
@@ -43,6 +45,7 @@ Each note follows a practical debugging structure:
 |---|---|---|
 | [Codex subagent lifecycle](cases/codex-subagent-lifecycle.md) | Subagent lifecycle, compaction, spawn quota | Restorable agent history should be separated from live execution-slot accounting. |
 | [Runtime config propagation](cases/runtime-config-propagation.md) | Cross-layer runtime setup | Runtime configuration must reach the layer that actually applies it, while propagation remains explicit and minimal. |
+| [LangGraph API OpenAPI validator drift](cases/langgraph-api-openapi-validator-drift.md) | API schema, request validation, streaming contract | Validation logic should enforce the current runtime contract, not an outdated OpenAPI snapshot. |
 | [Memory compaction token estimate](cases/memory-compaction-token-estimate.md) | Memory compaction, context estimation | Compaction decisions should be based on reusable input context size, not total usage from the previous step. |
 
 ## Scope
