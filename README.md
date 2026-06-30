@@ -11,6 +11,7 @@ The goal is to understand how real agent systems fail at runtime, how those fail
 - Runtime configuration propagation
 - API contract and validator consistency
 - Memory compaction and context estimation
+- Agent tracing and observability
 - Regression-test driven debugging
 - Minimal-fix design and tradeoff analysis
 
@@ -22,6 +23,7 @@ cases/
   runtime-config-propagation.md
   langgraph-api-openapi-validator-drift.md
   memory-compaction-token-estimate.md
+  nested-agent-tracing-context-ownership.md
 
 templates/
   debug-note-template.md
@@ -47,6 +49,7 @@ Each note follows a practical debugging structure:
 | [Runtime config propagation](cases/runtime-config-propagation.md) | Cross-layer runtime setup | Runtime configuration must reach the layer that actually applies it, while propagation remains explicit and minimal. |
 | [LangGraph API OpenAPI validator drift](cases/langgraph-api-openapi-validator-drift.md) | API schema, request validation, streaming contract | Validation logic should enforce the current runtime contract, not an outdated OpenAPI snapshot. |
 | [Memory compaction token estimate](cases/memory-compaction-token-estimate.md) | Memory compaction, context estimation | Compaction decisions should be based on reusable input context size, not total usage from the previous step. |
+| [Nested agent tracing context ownership](cases/nested-agent-tracing-context-ownership.md) | Agent tracing, context ownership, observability | Nested app traces should preserve inner app identity while explicitly linking back to the active outer recording context. |
 
 ## Scope
 
